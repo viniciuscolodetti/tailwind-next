@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { LogOut } from 'lucide-react'
 
 export function Profile() {
