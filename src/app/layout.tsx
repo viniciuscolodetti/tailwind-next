@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="antialiased">
+    <html lang="en" className="antialiased" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <Providers>
           <div className="min-h-screen dark:bg-zinc-900 lg:grid lg:grid-cols-app">

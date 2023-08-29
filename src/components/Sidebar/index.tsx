@@ -13,12 +13,12 @@ import {
   SquareStack,
   Users,
 } from 'lucide-react'
-import { NavItem } from './NavItem'
 import { UsedSpaceWidget } from './UsedSpaceWidget'
 import { Profile } from './Profile'
 import * as Input from '../Input'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import { Button } from '../Button'
+import * as Navigation from './Navigation'
 
 export function Sidebar() {
   return (
@@ -43,20 +43,36 @@ export function Sidebar() {
           <Input.Control placeholder="Search" />
         </Input.Root>
 
-        <nav className="space-y-0.5">
-          <NavItem title="Home" icon={Home} />
-          <NavItem title="Dashboard" icon={BarChart} />
-          <NavItem title="Projects" icon={SquareStack} />
-          <NavItem title="Tasks" icon={CheckSquare} />
-          <NavItem title="Reporting" icon={Flag} />
-          <NavItem title="Users" icon={Users} />
-        </nav>
+        <Navigation.Root type="single">
+          <Navigation.Trigger value="home" title="Home" icon={Home} href="#" />
+          <Navigation.Trigger
+            value="dashboard"
+            title="Dashboard"
+            icon={BarChart}
+          />
+          <Navigation.Trigger
+            value="projects"
+            title="Projects"
+            icon={SquareStack}
+          />
+          <Navigation.Trigger value="tasks" title="Tasks" icon={CheckSquare} />
+          <Navigation.Trigger value="reporting" title="Reporting" icon={Flag} />
+          <Navigation.Trigger value="users" title="Users" icon={Users} />
+        </Navigation.Root>
 
         <div className="mt-auto flex flex-col gap-6">
-          <nav className="space-y-0.5">
-            <NavItem title="Support" icon={LifeBuoy} />
-            <NavItem title="Settings" icon={Cog} />
-          </nav>
+          <Navigation.Root type="single">
+            <Navigation.Trigger
+              value="support"
+              title="Support"
+              icon={LifeBuoy}
+              href="#"
+            />
+            <Navigation.Trigger value="settings" title="Settings" icon={Cog}>
+              <Navigation.Item href="#">Option 1</Navigation.Item>
+              <Navigation.Item href="#">Option 2</Navigation.Item>
+            </Navigation.Trigger>
+          </Navigation.Root>
 
           <UsedSpaceWidget />
 
